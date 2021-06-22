@@ -10,7 +10,7 @@ export class MultiSelectComponent implements OnInit {
   genres: string[] = [];
   selectedOptions: string[] = [];
   @Output() selection: EventEmitter<string[]> = new EventEmitter();
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {}
 

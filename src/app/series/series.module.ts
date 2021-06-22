@@ -6,10 +6,11 @@ import { SeriesMainViewComponent } from './series-main-view/series-main-view.com
 import { SignleSeriesCardComponent } from './signle-series-card/signle-series-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SerieDetailsComponent } from './serie-details/serie-details.component';
 
 
 @NgModule({
-  declarations: [SeriesMainViewComponent, SignleSeriesCardComponent],
+  declarations: [SeriesMainViewComponent, SignleSeriesCardComponent, SerieDetailsComponent],
   imports: [
     CommonModule,
     HttpClientModule,
