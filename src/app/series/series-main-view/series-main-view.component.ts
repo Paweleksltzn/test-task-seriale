@@ -1,19 +1,21 @@
 import { SeriesService } from './../services/series.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { dateToShortString } from 'src/app/helpers/dateFormatter';
 import { SingleSerie } from 'src/app/interfaces/SingleSerie';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-series-main-view',
   templateUrl: './series-main-view.component.html',
   styleUrls: ['./series-main-view.component.scss']
 })
-export class SeriesMainViewComponent implements OnInit {
+export class SeriesMainViewComponent implements OnInit, OnDestroy {
   seriesDate = dateToShortString(new Date());
   seriesArr: SingleSerie[] = [];
   filteredSeriesArr: SingleSerie[] = [];
   genres: string[] = [];
   selectedOptions: string[] = [];
+  getSeriesForDaySubscription: Subscription;
   constructor(private seriesService: SeriesService) { }
 
   ngOnInit(): void {
@@ -21,9 +23,8 @@ export class SeriesMainViewComponent implements OnInit {
   }
 
   refreshSeries(): void {
-    this.seriesService.getSeriesForDay(new Date(this.seriesDate)).subscribe(res => {
+    this.getSeriesForDaySubscription = this.seriesService.getSeriesForDay(new Date(this.seriesDate)).subscribe(res => {
       this.seriesArr = res;
-      console.log('SERIES ARR ', this.seriesArr)
       this.collectGenres();
       this.filterSeries();
     });
@@ -53,8 +54,10 @@ export class SeriesMainViewComponent implements OnInit {
       });
       return shouldBeDisplayed;
     });
+  }
 
-
+  ngOnDestroy(): void {
+    this.getSeriesForDaySubscription.unsubscribe();
   }
 
 }
