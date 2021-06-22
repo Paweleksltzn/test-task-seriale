@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SingleSerie } from 'src/app/interfaces/SingleSerie';
 
 @Component({
   selector: 'app-signle-series-card',
@@ -7,11 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SignleSeriesCardComponent implements OnInit {
   @Input()
-  singleCard: any;
+  singleCard: SingleSerie;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

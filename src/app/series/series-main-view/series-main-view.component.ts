@@ -1,6 +1,7 @@
 import { SeriesService } from './../services/series.service';
 import { Component, OnInit } from '@angular/core';
 import { dateToShortString } from 'src/app/helpers/dateFormatter';
+import { SingleSerie } from 'src/app/interfaces/SingleSerie';
 
 @Component({
   selector: 'app-series-main-view',
@@ -9,7 +10,7 @@ import { dateToShortString } from 'src/app/helpers/dateFormatter';
 })
 export class SeriesMainViewComponent implements OnInit {
   seriesDate = dateToShortString(new Date());
-  seriesArr: any[] = [];
+  seriesArr: SingleSerie[] = [];
   constructor(private seriesService: SeriesService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,6 @@ export class SeriesMainViewComponent implements OnInit {
   refreshSeries(): void {
     this.seriesService.getSeriesForDay(new Date(this.seriesDate)).subscribe(res => {
       this.seriesArr = res;
-      console.log(this.seriesArr)
     });
   }
 

@@ -2,7 +2,7 @@
   <label for="sDate" class="m-2">Data serialu: </label>
   <input type="date" name="sDate" [value]="seriesDate" [(ngModel)]="seriesDate" (ngModelChange)="refreshSeries()">
 </div>
-<div class="row">
-  <app-signle-series-card *ngFor="let serie of seriesArr" class="col-sm-12 col-md-6 col-lg-4"></app-signle-series-card>
+<div class="row" appHeightEqualizer="single-card">
+  <app-signle-series-card *ngFor="let serie of seriesArr" class="single-card mb-3 px-5 col-sm-12 col-md-6 col-lg-4" [singleCard]="serie"></app-signle-series-card>
 </div>
 
