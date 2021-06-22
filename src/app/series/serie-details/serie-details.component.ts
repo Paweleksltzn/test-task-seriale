@@ -18,9 +18,9 @@ export class SerieDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
     this.$serieDetails = this.seriesService.getSerieDetails(id).pipe(
-      catchError(err => {
-        alert('Nie ma drog na skroty, jedyna droga po detale wiedzie przez kartki :)');
-        this.back();
+      catchError((err) => {
+        alert('Obsluga bledu'); // powinna byc zrobiona przez interceptor, aby obslugiwac jednoczesnie wszystkie requesty
+        throw 'error in source. Details: ' + err;
       })
     );
   }
