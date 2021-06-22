@@ -1,0 +1,6 @@
+<div class="chb-container m-2" *ngIf="genres?.length > 0">
+  <label for="genres">Wybierz rodzaj:</label>
+  <select name="genres" id="genres" multiple [(ngModel)]="selectedOptions" (ngModelChange)="selectValChanged()">
+    <option [ngValue]="genre" *ngFor="let genre of genres">{{genre}}</option>
+  </select>
+</div>

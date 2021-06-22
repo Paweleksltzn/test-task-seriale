@@ -2,7 +2,8 @@
   <label for="sDate" class="m-2">Data serialu: </label>
   <input type="date" name="sDate" [value]="seriesDate" [(ngModel)]="seriesDate" (ngModelChange)="refreshSeries()">
 </div>
+<app-multi-select [setGenres]="genres" (selection)="selectionChanged($event)"></app-multi-select>
 <div class="row" appHeightEqualizer="single-card">
-  <app-signle-series-card *ngFor="let serie of seriesArr" class="single-card mb-3 px-5 col-sm-12 col-md-6 col-lg-4" [singleCard]="serie"></app-signle-series-card>
+  <app-signle-series-card *ngFor="let serie of filteredSeriesArr" class="single-card mb-3 px-5 col-sm-12 col-md-6 col-lg-4" [singleCard]="serie"></app-signle-series-card>
 </div>
 

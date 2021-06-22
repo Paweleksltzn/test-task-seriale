@@ -1,3 +1,4 @@
+import { SeriesRoutingModule } from './series-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,10 +14,12 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    SeriesRoutingModule
   ],
   exports: [
-    SeriesMainViewComponent
+    SeriesMainViewComponent,
+    SeriesRoutingModule
   ]
 })
 export class SeriesModule { }
