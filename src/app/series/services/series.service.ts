@@ -26,4 +26,10 @@ export class SeriesService {
       };
     })));
   }
+
+  getSerieDetails(serieId: string): Observable<any> {
+    console.log('ID SERI: ',serieId, `https://api.tvmaze.com/shows/${serieId}`)
+    return this.http.get(`https://api.tvmaze.com/shows/${serieId}`);
+  }
+
 }

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [routerLink]="'details/' + singleCard.id">
   <img class="card-img-top" [src]="singleCard?.image?.original" alt="Okladka">
   <div class="card-body">
     <h5 class="card-title">{{singleCard.name}}</h5>

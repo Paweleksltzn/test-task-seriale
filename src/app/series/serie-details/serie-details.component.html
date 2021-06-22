@@ -1,1 +1,11 @@
-<p>serie-details works!</p>
+<ng-container *ngIf="$serieDetails | async as serieDetails">
+  <h3>
+    Nazwa: {{serieDetails.name}}
+  </h3>
+  <p>Jezyk: {{serieDetails.language}}</p>
+  <p>Ocena: {{serieDetails.rating?.average}}</p>
+  <p>Inne dane do wypisania ...</p>
+</ng-container>
+<button (click)="back()">POWROT</button>
+
+
